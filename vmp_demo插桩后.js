@@ -125,7 +125,7 @@ var __TENCENT_CHAOS_VM = function () {
                   break;
                 case 10:
                   e[I[++k]] = e[I[++k]] - 0;
-                  console.log("运算===>", e[I[k - 0]] - 0, "返回值===>", e[I[k - 1]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 0]] - 0, "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 11:
                   e[I[++k]] = e[I[++k]][I[++k]];
@@ -141,6 +141,7 @@ var __TENCENT_CHAOS_VM = function () {
                   break;
                 case 15:
                   e[I[++k]] = delete e[I[++k]][e[I[++k]]];
+                  window.debugMode ? console.log("一元运算===>", delete e[I[k - 1]][e[I[k - 0]]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 16:
                   return e[I[++k]];
@@ -152,6 +153,7 @@ var __TENCENT_CHAOS_VM = function () {
                   F = [];
                   for (w = I[++k]; w > 0; w--) F.push(e[I[++k]]);
                   e[I[++k]] = G(k + I[++k], F, o, r, Y);
+                  window.debugMode ? console.log("Func Call===>", G, "arg0===>", k + I[k - 0], "arg1===>", F, "arg2===>", o, "arg3===>", r, "arg4===>", Y, "返回值===>", e[I[k - 1]]) : void 0;
                   try {
                     Object.defineProperty(e[I[k - 1]], "length", {
                       value: I[++k],
@@ -165,6 +167,7 @@ var __TENCENT_CHAOS_VM = function () {
                   F = [];
                   for (w = I[++k]; w > 0; w--) F.push(e[I[++k]]);
                   e[I[++k]] = E(k + I[++k], F, o, r, Y);
+                  window.debugMode ? console.log("Func Call===>", E, "arg0===>", k + I[k - 0], "arg1===>", F, "arg2===>", o, "arg3===>", r, "arg4===>", Y, "返回值===>", e[I[k - 1]]) : void 0;
                   try {
                     Object.defineProperty(e[I[k - 1]], "length", {
                       value: I[++k],
@@ -179,6 +182,7 @@ var __TENCENT_CHAOS_VM = function () {
                   break;
                 case 21:
                   e[I[++k]] = Array(I[++k]);
+                  window.debugMode ? console.log("Func Call===>", Array, "arg0===>", I[k - 0], "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 22:
                   e[I[++k]] = {};
@@ -203,19 +207,19 @@ var __TENCENT_CHAOS_VM = function () {
                   F = [];
                   for (w = I[++k]; w > 0; w--) F.push(e[I[++k]]);
                   e[I[++k]] = e[I[++k]].apply(K, F);
-                  console.log("func ===>", e[I[k - 0]], "this===>", K, "参数===>", F, "返回值===>", e[I[k - 1]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 0]], "this===>", K, "args_array===>", F, "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 26:
                   F = [];
                   for (w = I[++k]; w > 0; w--) F.push(e[I[++k]]);
                   e[I[++k]] = e[I[++k]].apply(e[I[++k]], F);
-                  console.log("func ===>", e[I[k - 1]], "this===>", e[I[k - 0]], "参数===>", F, "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 1]], "this===>", e[I[k - 0]], "args_array===>", F, "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 27:
                   F = [];
                   for (w = I[++k]; w > 0; w--) F.push(e[I[++k]]);
                   e[I[++k]] = e[I[++k]][e[I[++k]]].apply(e[I[++k]], F);
-                  console.log("func ===>", e[I[k - 1]][e[I[k - 0]]], "this===>", e[I[k - 1]], "参数===>", F, "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 1]][e[I[k - 0]]], "this===>", e[I[k - 1]], "args_array===>", F, "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 28:
                   F = [,];
@@ -223,6 +227,7 @@ var __TENCENT_CHAOS_VM = function () {
                   w = I[++k];
                   S = e[I[++k]];
                   e[w] = new (S.bind.apply(S, F))();
+                  window.debugMode ? console.log("new Call===>", S.bind.apply(S, F), "返回值===>", e[w]) : void 0;
                   break;
                 case 29:
                   F = [];
@@ -244,218 +249,235 @@ var __TENCENT_CHAOS_VM = function () {
                   break;
                 case 34:
                   e[I[++k]] = -e[I[++k]];
+                  window.debugMode ? console.log("一元运算===>", -e[I[k - 0]], "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 35:
                   e[I[++k]] = +e[I[++k]];
+                  window.debugMode ? console.log("一元运算===>", +e[I[k - 0]], "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 36:
                   e[I[++k]] = !e[I[++k]];
+                  window.debugMode ? console.log("一元运算===>", !e[I[k - 0]], "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 37:
                   e[I[++k]] = ~e[I[++k]];
+                  window.debugMode ? console.log("一元运算===>", ~e[I[k - 0]], "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 38:
                   e[I[++k]] = B(e[I[++k]]);
+                  window.debugMode ? console.log("Func Call===>", B, "arg0===>", e[I[k - 0]], "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 39:
                   e[I[++k]] = ++e[I[++k]];
+                  window.debugMode ? console.log("更新运算===>", ++e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 40:
                   e[I[++k]] = --e[I[++k]];
+                  window.debugMode ? console.log("更新运算===>", --e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 41:
                   e[I[++k]] = e[I[++k]] + e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] + e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] + e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 42:
                   e[I[++k]] = e[I[++k]] - e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] - e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] - e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 43:
                   e[I[++k]] = e[I[++k]] * e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] * e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] * e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 44:
                   e[I[++k]] = e[I[++k]] / e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] / e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] / e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 45:
                   e[I[++k]] = e[I[++k]] % e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] % e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] % e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 46:
                   e[I[++k]] = e[I[++k]] == e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] == e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] == e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 47:
                   e[I[++k]] = e[I[++k]] === e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] === e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] === e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 48:
                   e[I[++k]] = e[I[++k]] < e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] < e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] < e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 49:
                   e[I[++k]] = e[I[++k]] <= e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] <= e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] <= e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 50:
                   e[I[++k]] = e[I[++k]] > e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] > e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] > e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 51:
                   e[I[++k]] = e[I[++k]] >= e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] >= e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] >= e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 52:
                   e[I[++k]] = e[I[++k]] << e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] << e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] << e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 53:
                   e[I[++k]] = e[I[++k]] >> e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] >> e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] >> e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 54:
                   e[I[++k]] = e[I[++k]] >>> e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] >>> e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] >>> e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 55:
                   e[I[++k]] = e[I[++k]] | e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] | e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] | e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 56:
                   e[I[++k]] = e[I[++k]] ^ e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] ^ e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] ^ e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 57:
                   e[I[++k]] = e[I[++k]] & e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] & e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] & e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 58:
                   e[I[++k]] = e[I[++k]] in e[I[++k]];
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] in e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 59:
                   e[I[++k]] = A(e[I[++k]], e[I[++k]]);
+                  window.debugMode ? console.log("Func Call===>", A, "arg0===>", e[I[k - 1]], "arg1===>", e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 60:
                   e[I[++k]] = I[++k] + e[I[++k]];
-                  console.log("运算===>", I[k - 1] + e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", I[k - 1] + e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 61:
                   e[I[++k]] = I[++k] - e[I[++k]];
-                  console.log("运算===>", I[k - 1] - e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", I[k - 1] - e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 62:
                   e[I[++k]] = e[I[++k]] + I[++k];
-                  console.log("运算===>", e[I[k - 1]] + I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] + I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 63:
                   e[I[++k]] = e[I[++k]] - I[++k];
-                  console.log("运算===>", e[I[k - 1]] - I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] - I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 64:
                   e[I[++k]] = e[I[++k]] == I[++k];
-                  console.log("运算===>", e[I[k - 1]] == I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] == I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 65:
                   e[I[++k]] = e[I[++k]] === I[++k];
-                  console.log("运算===>", e[I[k - 1]] === I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] === I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 66:
                   e[I[++k]] = e[I[++k]] < I[++k];
-                  console.log("运算===>", e[I[k - 1]] < I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] < I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 67:
                   e[I[++k]] = e[I[++k]] <= I[++k];
-                  console.log("运算===>", e[I[k - 1]] <= I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] <= I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 68:
                   e[I[++k]] = e[I[++k]] > I[++k];
-                  console.log("运算===>", e[I[k - 1]] > I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] > I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 69:
                   e[I[++k]] = e[I[++k]] >= I[++k];
-                  console.log("运算===>", e[I[k - 1]] >= I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] >= I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 70:
                   e[I[++k]] = e[I[++k]] << I[++k];
-                  console.log("运算===>", e[I[k - 1]] << I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] << I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 71:
                   e[I[++k]] = e[I[++k]] >> I[++k];
-                  console.log("运算===>", e[I[k - 1]] >> I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] >> I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 72:
                   e[I[++k]] = e[I[++k]] >>> I[++k];
-                  console.log("运算===>", e[I[k - 1]] >>> I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] >>> I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 73:
                   e[I[++k]] = e[I[++k]] | I[++k];
-                  console.log("运算===>", e[I[k - 1]] | I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] | I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 74:
                   e[I[++k]] = e[I[++k]] ^ I[++k];
-                  console.log("运算===>", e[I[k - 1]] ^ I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] ^ I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 75:
                   e[I[++k]] = e[I[++k]] & I[++k];
-                  console.log("运算===>", e[I[k - 1]] & I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] & I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 76:
                   e[I[++k]] = e[I[++k]].call(K);
-                  console.log("func ===>", e[I[k - 0]], "this===>", K, "返回值===>", e[I[k - 1]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 0]], "this===>", K, "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 77:
                   e[I[++k]] = e[I[++k]].call(K, e[I[++k]]);
-                  console.log("func ===>", e[I[k - 1]], "this===>", K, "参数1====>", e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 1]], "this===>", K, "arg1===>", e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 78:
                   e[I[++k]] = e[I[++k]].call(K, e[I[++k]], e[I[++k]]);
-                  console.log("func ===>", e[I[k - 2]], "this===>", K, "参数1====>", e[I[k - 1]], "参数2====>", e[I[k - 0]], "返回值===>", e[I[k - 3]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 2]], "this===>", K, "arg1===>", e[I[k - 1]], "arg2===>", e[I[k - 0]], "返回值===>", e[I[k - 3]]) : void 0;
                   break;
                 case 79:
                   e[I[++k]] = e[I[++k]].call(K, e[I[++k]], e[I[++k]], e[I[++k]]);
-                  console.log("func ===>", e[I[k - 3]], "this===>", K, "参数1====>", e[I[k - 2]], "参数2====>", e[I[k - 1]], "参数3====>", e[I[k - 0]], "返回值===>", e[I[k - 4]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 3]], "this===>", K, "arg1===>", e[I[k - 2]], "arg2===>", e[I[k - 1]], "arg3===>", e[I[k - 0]], "返回值===>", e[I[k - 4]]) : void 0;
                   break;
                 case 80:
                   e[I[++k]] = e[I[++k]].call(e[I[++k]]);
-                  console.log("func ===>", e[I[k - 1]], "this===>", e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 1]], "this===>", e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 81:
                   e[I[++k]] = e[I[++k]].call(e[I[++k]], e[I[++k]]);
-                  console.log("func ===>", e[I[k - 2]], "this===>", e[I[k - 1]], "参数1====>", e[I[k - 0]], "返回值===>", e[I[k - 3]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 2]], "this===>", e[I[k - 1]], "arg1===>", e[I[k - 0]], "返回值===>", e[I[k - 3]]) : void 0;
                   break;
                 case 82:
                   e[I[++k]] = e[I[++k]].call(e[I[++k]], e[I[++k]], e[I[++k]]);
-                  console.log("func ===>", e[I[k - 3]], "this===>", e[I[k - 2]], "参数1====>", e[I[k - 1]], "参数2====>", e[I[k - 0]], "返回值===>", e[I[k - 4]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 3]], "this===>", e[I[k - 2]], "arg1===>", e[I[k - 1]], "arg2===>", e[I[k - 0]], "返回值===>", e[I[k - 4]]) : void 0;
                   break;
                 case 83:
                   e[I[++k]] = e[I[++k]].call(e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]]);
-                  console.log("func ===>", e[I[k - 4]], "this===>", e[I[k - 3]], "参数1====>", e[I[k - 2]], "参数2====>", e[I[k - 1]], "参数3====>", e[I[k - 0]], "返回值===>", e[I[k - 5]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 4]], "this===>", e[I[k - 3]], "arg1===>", e[I[k - 2]], "arg2===>", e[I[k - 1]], "arg3===>", e[I[k - 0]], "返回值===>", e[I[k - 5]]) : void 0;
                   break;
                 case 84:
                   e[I[++k]] = new e[I[++k]]();
+                  window.debugMode ? console.log("new Call===>", e[I[k - 0]], "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 85:
                   e[I[++k]] = new e[I[++k]](e[I[++k]]);
+                  window.debugMode ? console.log("new Call===>", e[I[k - 1]], "arg0===>", e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 86:
                   e[I[++k]] = new e[I[++k]](e[I[++k]], e[I[++k]]);
+                  window.debugMode ? console.log("new Call===>", e[I[k - 2]], "arg0===>", e[I[k - 1]], "arg1===>", e[I[k - 0]], "返回值===>", e[I[k - 3]]) : void 0;
                   break;
                 case 87:
                   e[I[++k]] = new e[I[++k]](e[I[++k]], e[I[++k]], e[I[++k]]);
+                  window.debugMode ? console.log("new Call===>", e[I[k - 3]], "arg0===>", e[I[k - 2]], "arg1===>", e[I[k - 1]], "arg2===>", e[I[k - 0]], "返回值===>", e[I[k - 4]]) : void 0;
                   break;
                 case 88:
                   e[I[++k]] = new e[I[++k]](e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]]);
+                  window.debugMode ? console.log("new Call===>", e[I[k - 4]], "arg0===>", e[I[k - 3]], "arg1===>", e[I[k - 2]], "arg2===>", e[I[k - 1]], "arg3===>", e[I[k - 0]], "返回值===>", e[I[k - 5]]) : void 0;
                   break;
                 case 89:
                   e[I[++k]] = new e[I[++k]](e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]]);
+                  window.debugMode ? console.log("new Call===>", e[I[k - 5]], "arg0===>", e[I[k - 4]], "arg1===>", e[I[k - 3]], "arg2===>", e[I[k - 2]], "arg3===>", e[I[k - 1]], "arg4===>", e[I[k - 0]], "返回值===>", e[I[k - 6]]) : void 0;
                   break;
                 case 90:
                   e[I[++k]] = new e[I[++k]](e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]]);
+                  window.debugMode ? console.log("new Call===>", e[I[k - 6]], "arg0===>", e[I[k - 5]], "arg1===>", e[I[k - 4]], "arg2===>", e[I[k - 3]], "arg3===>", e[I[k - 2]], "arg4===>", e[I[k - 1]], "arg5===>", e[I[k - 0]], "返回值===>", e[I[k - 7]]) : void 0;
                   break;
                 case 91:
                   e[I[++k]] = new e[I[++k]](e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]]);
+                  window.debugMode ? console.log("new Call===>", e[I[k - 7]], "arg0===>", e[I[k - 6]], "arg1===>", e[I[k - 5]], "arg2===>", e[I[k - 4]], "arg3===>", e[I[k - 3]], "arg4===>", e[I[k - 2]], "arg5===>", e[I[k - 1]], "arg6===>", e[I[k - 0]], "返回值===>", e[I[k - 8]]) : void 0;
                   break;
               }
             }
@@ -518,7 +540,7 @@ var __TENCENT_CHAOS_VM = function () {
                   break;
                 case 10:
                   e[I[++k]] = e[I[++k]] - 0;
-                  console.log("运算===>", e[I[k - 0]] - 0, "返回值===>", e[I[k - 1]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 0]] - 0, "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 11:
                   e[I[++k]] = e[I[++k]][I[++k]];
@@ -534,6 +556,7 @@ var __TENCENT_CHAOS_VM = function () {
                   break;
                 case 15:
                   e[I[++k]] = delete e[I[++k]][e[I[++k]]];
+                  window.debugMode ? console.log("一元运算===>", delete e[I[k - 1]][e[I[k - 0]]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 16:
                   return e[I[++k]];
@@ -545,6 +568,7 @@ var __TENCENT_CHAOS_VM = function () {
                   F = [];
                   for (w = I[++k]; w > 0; w--) F.push(e[I[++k]]);
                   e[I[++k]] = G(k + I[++k], F, o, r, Y);
+                  window.debugMode ? console.log("Func Call===>", G, "arg0===>", k + I[k - 0], "arg1===>", F, "arg2===>", o, "arg3===>", r, "arg4===>", Y, "返回值===>", e[I[k - 1]]) : void 0;
                   try {
                     Object.defineProperty(e[I[k - 1]], "length", {
                       value: I[++k],
@@ -558,6 +582,7 @@ var __TENCENT_CHAOS_VM = function () {
                   F = [];
                   for (w = I[++k]; w > 0; w--) F.push(e[I[++k]]);
                   e[I[++k]] = E(k + I[++k], F, o, r, Y);
+                  window.debugMode ? console.log("Func Call===>", E, "arg0===>", k + I[k - 0], "arg1===>", F, "arg2===>", o, "arg3===>", r, "arg4===>", Y, "返回值===>", e[I[k - 1]]) : void 0;
                   try {
                     Object.defineProperty(e[I[k - 1]], "length", {
                       value: I[++k],
@@ -572,6 +597,7 @@ var __TENCENT_CHAOS_VM = function () {
                   break;
                 case 21:
                   e[I[++k]] = Array(I[++k]);
+                  window.debugMode ? console.log("Func Call===>", Array, "arg0===>", I[k - 0], "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 22:
                   e[I[++k]] = {};
@@ -596,19 +622,19 @@ var __TENCENT_CHAOS_VM = function () {
                   F = [];
                   for (w = I[++k]; w > 0; w--) F.push(e[I[++k]]);
                   e[I[++k]] = e[I[++k]].apply(K, F);
-                  console.log("func ===>", e[I[k - 0]], "this===>", K, "参数===>", F, "返回值===>", e[I[k - 1]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 0]], "this===>", K, "args_array===>", F, "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 26:
                   F = [];
                   for (w = I[++k]; w > 0; w--) F.push(e[I[++k]]);
                   e[I[++k]] = e[I[++k]].apply(e[I[++k]], F);
-                  console.log("func ===>", e[I[k - 1]], "this===>", e[I[k - 0]], "参数===>", F, "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 1]], "this===>", e[I[k - 0]], "args_array===>", F, "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 27:
                   F = [];
                   for (w = I[++k]; w > 0; w--) F.push(e[I[++k]]);
                   e[I[++k]] = e[I[++k]][e[I[++k]]].apply(e[I[++k]], F);
-                  console.log("func ===>", e[I[k - 1]][e[I[k - 0]]], "this===>", e[I[k - 1]], "参数===>", F, "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 1]][e[I[k - 0]]], "this===>", e[I[k - 1]], "args_array===>", F, "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 28:
                   F = [,];
@@ -616,6 +642,7 @@ var __TENCENT_CHAOS_VM = function () {
                   w = I[++k];
                   S = e[I[++k]];
                   e[w] = new (S.bind.apply(S, F))();
+                  window.debugMode ? console.log("new Call===>", S.bind.apply(S, F), "返回值===>", e[w]) : void 0;
                   break;
                 case 29:
                   F = [];
@@ -637,218 +664,235 @@ var __TENCENT_CHAOS_VM = function () {
                   break;
                 case 34:
                   e[I[++k]] = -e[I[++k]];
+                  window.debugMode ? console.log("一元运算===>", -e[I[k - 0]], "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 35:
                   e[I[++k]] = +e[I[++k]];
+                  window.debugMode ? console.log("一元运算===>", +e[I[k - 0]], "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 36:
                   e[I[++k]] = !e[I[++k]];
+                  window.debugMode ? console.log("一元运算===>", !e[I[k - 0]], "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 37:
                   e[I[++k]] = ~e[I[++k]];
+                  window.debugMode ? console.log("一元运算===>", ~e[I[k - 0]], "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 38:
                   e[I[++k]] = B(e[I[++k]]);
+                  window.debugMode ? console.log("Func Call===>", B, "arg0===>", e[I[k - 0]], "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 39:
                   e[I[++k]] = ++e[I[++k]];
+                  window.debugMode ? console.log("更新运算===>", ++e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 40:
                   e[I[++k]] = --e[I[++k]];
+                  window.debugMode ? console.log("更新运算===>", --e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 41:
                   e[I[++k]] = e[I[++k]] + e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] + e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] + e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 42:
                   e[I[++k]] = e[I[++k]] - e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] - e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] - e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 43:
                   e[I[++k]] = e[I[++k]] * e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] * e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] * e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 44:
                   e[I[++k]] = e[I[++k]] / e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] / e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] / e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 45:
                   e[I[++k]] = e[I[++k]] % e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] % e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] % e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 46:
                   e[I[++k]] = e[I[++k]] == e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] == e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] == e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 47:
                   e[I[++k]] = e[I[++k]] === e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] === e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] === e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 48:
                   e[I[++k]] = e[I[++k]] < e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] < e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] < e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 49:
                   e[I[++k]] = e[I[++k]] <= e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] <= e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] <= e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 50:
                   e[I[++k]] = e[I[++k]] > e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] > e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] > e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 51:
                   e[I[++k]] = e[I[++k]] >= e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] >= e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] >= e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 52:
                   e[I[++k]] = e[I[++k]] << e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] << e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] << e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 53:
                   e[I[++k]] = e[I[++k]] >> e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] >> e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] >> e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 54:
                   e[I[++k]] = e[I[++k]] >>> e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] >>> e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] >>> e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 55:
                   e[I[++k]] = e[I[++k]] | e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] | e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] | e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 56:
                   e[I[++k]] = e[I[++k]] ^ e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] ^ e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] ^ e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 57:
                   e[I[++k]] = e[I[++k]] & e[I[++k]];
-                  console.log("运算===>", e[I[k - 1]] & e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] & e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 58:
                   e[I[++k]] = e[I[++k]] in e[I[++k]];
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] in e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 59:
                   e[I[++k]] = A(e[I[++k]], e[I[++k]]);
+                  window.debugMode ? console.log("Func Call===>", A, "arg0===>", e[I[k - 1]], "arg1===>", e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 60:
                   e[I[++k]] = I[++k] + e[I[++k]];
-                  console.log("运算===>", I[k - 1] + e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", I[k - 1] + e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 61:
                   e[I[++k]] = I[++k] - e[I[++k]];
-                  console.log("运算===>", I[k - 1] - e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", I[k - 1] - e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 62:
                   e[I[++k]] = e[I[++k]] + I[++k];
-                  console.log("运算===>", e[I[k - 1]] + I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] + I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 63:
                   e[I[++k]] = e[I[++k]] - I[++k];
-                  console.log("运算===>", e[I[k - 1]] - I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] - I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 64:
                   e[I[++k]] = e[I[++k]] == I[++k];
-                  console.log("运算===>", e[I[k - 1]] == I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] == I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 65:
                   e[I[++k]] = e[I[++k]] === I[++k];
-                  console.log("运算===>", e[I[k - 1]] === I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] === I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 66:
                   e[I[++k]] = e[I[++k]] < I[++k];
-                  console.log("运算===>", e[I[k - 1]] < I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] < I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 67:
                   e[I[++k]] = e[I[++k]] <= I[++k];
-                  console.log("运算===>", e[I[k - 1]] <= I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] <= I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 68:
                   e[I[++k]] = e[I[++k]] > I[++k];
-                  console.log("运算===>", e[I[k - 1]] > I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] > I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 69:
                   e[I[++k]] = e[I[++k]] >= I[++k];
-                  console.log("运算===>", e[I[k - 1]] >= I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] >= I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 70:
                   e[I[++k]] = e[I[++k]] << I[++k];
-                  console.log("运算===>", e[I[k - 1]] << I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] << I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 71:
                   e[I[++k]] = e[I[++k]] >> I[++k];
-                  console.log("运算===>", e[I[k - 1]] >> I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] >> I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 72:
                   e[I[++k]] = e[I[++k]] >>> I[++k];
-                  console.log("运算===>", e[I[k - 1]] >>> I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] >>> I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 73:
                   e[I[++k]] = e[I[++k]] | I[++k];
-                  console.log("运算===>", e[I[k - 1]] | I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] | I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 74:
                   e[I[++k]] = e[I[++k]] ^ I[++k];
-                  console.log("运算===>", e[I[k - 1]] ^ I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] ^ I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 75:
                   e[I[++k]] = e[I[++k]] & I[++k];
-                  console.log("运算===>", e[I[k - 1]] & I[k - 0], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("运算===>", e[I[k - 1]] & I[k - 0], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 76:
                   e[I[++k]] = e[I[++k]].call(K);
-                  console.log("func ===>", e[I[k - 0]], "this===>", K, "返回值===>", e[I[k - 1]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 0]], "this===>", K, "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 77:
                   e[I[++k]] = e[I[++k]].call(K, e[I[++k]]);
-                  console.log("func ===>", e[I[k - 1]], "this===>", K, "参数1====>", e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 1]], "this===>", K, "arg1===>", e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 78:
                   e[I[++k]] = e[I[++k]].call(K, e[I[++k]], e[I[++k]]);
-                  console.log("func ===>", e[I[k - 2]], "this===>", K, "参数1====>", e[I[k - 1]], "参数2====>", e[I[k - 0]], "返回值===>", e[I[k - 3]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 2]], "this===>", K, "arg1===>", e[I[k - 1]], "arg2===>", e[I[k - 0]], "返回值===>", e[I[k - 3]]) : void 0;
                   break;
                 case 79:
                   e[I[++k]] = e[I[++k]].call(K, e[I[++k]], e[I[++k]], e[I[++k]]);
-                  console.log("func ===>", e[I[k - 3]], "this===>", K, "参数1====>", e[I[k - 2]], "参数2====>", e[I[k - 1]], "参数3====>", e[I[k - 0]], "返回值===>", e[I[k - 4]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 3]], "this===>", K, "arg1===>", e[I[k - 2]], "arg2===>", e[I[k - 1]], "arg3===>", e[I[k - 0]], "返回值===>", e[I[k - 4]]) : void 0;
                   break;
                 case 80:
                   e[I[++k]] = e[I[++k]].call(e[I[++k]]);
-                  console.log("func ===>", e[I[k - 1]], "this===>", e[I[k - 0]], "返回值===>", e[I[k - 2]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 1]], "this===>", e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 81:
                   e[I[++k]] = e[I[++k]].call(e[I[++k]], e[I[++k]]);
-                  console.log("func ===>", e[I[k - 2]], "this===>", e[I[k - 1]], "参数1====>", e[I[k - 0]], "返回值===>", e[I[k - 3]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 2]], "this===>", e[I[k - 1]], "arg1===>", e[I[k - 0]], "返回值===>", e[I[k - 3]]) : void 0;
                   break;
                 case 82:
                   e[I[++k]] = e[I[++k]].call(e[I[++k]], e[I[++k]], e[I[++k]]);
-                  console.log("func ===>", e[I[k - 3]], "this===>", e[I[k - 2]], "参数1====>", e[I[k - 1]], "参数2====>", e[I[k - 0]], "返回值===>", e[I[k - 4]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 3]], "this===>", e[I[k - 2]], "arg1===>", e[I[k - 1]], "arg2===>", e[I[k - 0]], "返回值===>", e[I[k - 4]]) : void 0;
                   break;
                 case 83:
                   e[I[++k]] = e[I[++k]].call(e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]]);
-                  console.log("func ===>", e[I[k - 4]], "this===>", e[I[k - 3]], "参数1====>", e[I[k - 2]], "参数2====>", e[I[k - 1]], "参数3====>", e[I[k - 0]], "返回值===>", e[I[k - 5]])
+                  window.debugMode ? console.log("func ===>", e[I[k - 4]], "this===>", e[I[k - 3]], "arg1===>", e[I[k - 2]], "arg2===>", e[I[k - 1]], "arg3===>", e[I[k - 0]], "返回值===>", e[I[k - 5]]) : void 0;
                   break;
                 case 84:
                   e[I[++k]] = new e[I[++k]]();
+                  window.debugMode ? console.log("new Call===>", e[I[k - 0]], "返回值===>", e[I[k - 1]]) : void 0;
                   break;
                 case 85:
                   e[I[++k]] = new e[I[++k]](e[I[++k]]);
+                  window.debugMode ? console.log("new Call===>", e[I[k - 1]], "arg0===>", e[I[k - 0]], "返回值===>", e[I[k - 2]]) : void 0;
                   break;
                 case 86:
                   e[I[++k]] = new e[I[++k]](e[I[++k]], e[I[++k]]);
+                  window.debugMode ? console.log("new Call===>", e[I[k - 2]], "arg0===>", e[I[k - 1]], "arg1===>", e[I[k - 0]], "返回值===>", e[I[k - 3]]) : void 0;
                   break;
                 case 87:
                   e[I[++k]] = new e[I[++k]](e[I[++k]], e[I[++k]], e[I[++k]]);
+                  window.debugMode ? console.log("new Call===>", e[I[k - 3]], "arg0===>", e[I[k - 2]], "arg1===>", e[I[k - 1]], "arg2===>", e[I[k - 0]], "返回值===>", e[I[k - 4]]) : void 0;
                   break;
                 case 88:
                   e[I[++k]] = new e[I[++k]](e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]]);
+                  window.debugMode ? console.log("new Call===>", e[I[k - 4]], "arg0===>", e[I[k - 3]], "arg1===>", e[I[k - 2]], "arg2===>", e[I[k - 1]], "arg3===>", e[I[k - 0]], "返回值===>", e[I[k - 5]]) : void 0;
                   break;
                 case 89:
                   e[I[++k]] = new e[I[++k]](e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]]);
+                  window.debugMode ? console.log("new Call===>", e[I[k - 5]], "arg0===>", e[I[k - 4]], "arg1===>", e[I[k - 3]], "arg2===>", e[I[k - 2]], "arg3===>", e[I[k - 1]], "arg4===>", e[I[k - 0]], "返回值===>", e[I[k - 6]]) : void 0;
                   break;
                 case 90:
                   e[I[++k]] = new e[I[++k]](e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]]);
+                  window.debugMode ? console.log("new Call===>", e[I[k - 6]], "arg0===>", e[I[k - 5]], "arg1===>", e[I[k - 4]], "arg2===>", e[I[k - 3]], "arg3===>", e[I[k - 2]], "arg4===>", e[I[k - 1]], "arg5===>", e[I[k - 0]], "返回值===>", e[I[k - 7]]) : void 0;
                   break;
                 case 91:
                   e[I[++k]] = new e[I[++k]](e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]], e[I[++k]]);
+                  window.debugMode ? console.log("new Call===>", e[I[k - 7]], "arg0===>", e[I[k - 6]], "arg1===>", e[I[k - 5]], "arg2===>", e[I[k - 4]], "arg3===>", e[I[k - 3]], "arg4===>", e[I[k - 2]], "arg5===>", e[I[k - 1]], "arg6===>", e[I[k - 0]], "返回值===>", e[I[k - 8]]) : void 0;
                   break;
               }
             }
